@@ -11,30 +11,31 @@ from sklearn.dummy import DummyRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 
-font_title_defaults = {'fontsize': 25,
-                   'fontweight': 'bold',
+font_title_defaults = {'fontsize': 36,
                    'color': 'black',
                    'alpha': 1,
                    'horizontalalignment': 'center',
                    'rotation': 0,
-                   'family': 'georgia',
-                   'style': 'italic'}
+                   'family': 'serif'}
 
-font_xlabel_defaults = {'fontsize': 12,
-                   'fontweight': 'bold',
+font_xlabel_defaults = {'fontsize': 24,
                    'color': 'black',
                    'alpha': 1,
                    'horizontalalignment': 'center',
                    'rotation': 0,
-                   'family': 'georgia'}
+                   'family': 'serif'}
 
-font_ylabel_defaults = {'fontsize': 12,
-                   'fontweight': 'bold',
+font_ylabel_defaults = {'fontsize': 24,
                    'color': 'black',
                    'alpha': 1,
                    'horizontalalignment': 'center',
                    'rotation': 90,
-                   'family': 'georgia'}
+                   'family': 'serif'}
+
+
+
+
+
 
 
 def fit_and_evaluate_citeseq_models(pipe, selected_genes, X_train, X_test, y_train, y_test, figures = False, pca_viz = True, eval_lr_coefs = False, cross_val = False):
@@ -58,7 +59,7 @@ def fit_and_evaluate_citeseq_models(pipe, selected_genes, X_train, X_test, y_tra
         
         # Evaluate Model with train data
         train_mean_squared_error.append(mean_squared_error(y_true, y_preds))
-        train_r_squared.append(round(r2_score(y_true, y_preds), 2))
+        train_r_squared.append(r2_score(y_true, y_preds))
         train_mean_absolute_error.append(mean_absolute_error(y_true, y_preds))
         
         # Apply Cross Validation
